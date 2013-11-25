@@ -1,8 +1,18 @@
+
 development:
   adapter: postgresql
-  encoding: unicode
-  database: myapp_development
+  database: sample_app_developement
   pool: 5
-  password:
+  timeout: 5000
 
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
 
+production:
+  adapter: postgresql
+  database: sample_app_production
+  pool: 5
+  timeout: 5000
