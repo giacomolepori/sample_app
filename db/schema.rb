@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126144234) do
+ActiveRecord::Schema.define(version: 20131130141156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "microposts", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -23,6 +30,7 @@ ActiveRecord::Schema.define(version: 20131126144234) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
